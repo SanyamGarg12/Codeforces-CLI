@@ -1,0 +1,70 @@
+#!/bin/bash
+
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+if [ $# -eq 0 ]; then
+    echo "Usage: $0 [--submit | --status | --my-stats | --my-contests | --credentials | --config | --blogs | --help]"
+    exit 1
+fi
+
+option=$1
+
+cd "$SCRIPT_DIR" > /dev/null
+
+VENV_USE=true
+if [ ! -d ".env" ]; then
+    VENV_USE=false
+fi
+
+activate_venv() {
+    if [ $VENV_USE==true ]; then
+        source .env/bin/activate
+    fi
+}
+
+deactivate_venv() {
+    if [ $VENV_USE==true ]; then
+        deactivate
+    fi
+}
+
+if [ $option == "--submit" ]; then
+    activate_venv
+    python options/Submit.py
+    deactivate_venv
+elif [ $option == "--status" ]; then
+    activate_venv
+    python options/getSubmissionStatusDetails.py
+    deactivate_venv
+elif [ $option == "--contests" ]; then
+    activate_venv
+    python options/getContests.py
+    deactivate_venv
+elif [ $option == "--my-stats" ]; then
+    activate_venv
+    python options/getMyStats.py
+    deactivate_venv
+elif [ $option == "--my-contests" ]; then
+    activate_venv
+    python options/getMyContests.py
+    deactivate_venv
+elif [ $option == "--credentials" ]; then
+    activate_venv
+    python utils/credentials.py
+    deactivate_venv
+elif [ $option == "--config" ]; then
+    activate_venv
+    python config/config_interpreter.py
+    deactivate_venv
+elif [ $option == "--blogs" ]; then
+    activate_venv
+    python options/getBlogs.py
+    deactivate_venv
+elif [ $option == "--help" ]; then
+    cat options/help.txt
+else
+    echo "Invalid option. Usage: cftool [--submit | --status | --my-stats | --my-contest | --credentials | --config | --blogs | --help]"
+    exit 1
+fi
+
+cd - > /dev/null
