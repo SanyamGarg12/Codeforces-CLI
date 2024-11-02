@@ -1,8 +1,8 @@
-# Codeforces CLI Tool (cftool)
+# Codeforces CLI
 
 ## Overview:
 
-The Codeforces Tool (cftool) is a command-line utility designed to streamline various interactions with the Codeforces platform. Whether you want to submit code, check your recent submission status, view upcoming contests, or manage credentials, cftool provides a simple and efficient way to navigate Codeforces functionalities.
+The Codeforces is a command-line utility designed to streamline various interactions with the Codeforces platform. Whether you want to submit code, check your recent submission status, view upcoming contests, or manage credentials, cftool provides a simple and efficient way to navigate Codeforces functionalities.
 Please make sure to read the Getting Started section below.
 
 ## Table of Contents:
@@ -22,10 +22,10 @@ Please make sure to read the Getting Started section below.
   - **Download the Project:**
     Clone the repository to your local machine using the following command:
     ```bash
-    git clone https://github.com/regular-life/cftool
+    git clone https://github.com/Sanyamgarg12/Codeforces-CLI
     ```
     **OR**
-    Download the .zip file from [cftool GitHub Repository](https://github.com/regular-life/cftool).
+    Download the .zip file from [cftool GitHub Repository](https://github.com/SanyamGarg12/Codeforces-CLI).
 
   - **Navigate to Project Directory:**
     Open a terminal and navigate to `cftool` directory.
